@@ -1,4 +1,4 @@
-package com.ob;
+package com.ob.algorithm;
 
 /**
  * Hello world!
