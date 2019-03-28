@@ -3,7 +3,7 @@ package com.ob.algorithm;
 /**
  * @author: oubin
  * @date: 2019/3/27 09:50
- * @Description:
+ * @Description: 盛水最多的容器
  */
 public class MaxArea {
 
