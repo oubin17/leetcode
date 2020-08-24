@@ -1,4 +1,4 @@
-package com.ob.algorithm;
+package com.ob.algorithm.other;
 
 import java.util.HashSet;
 import java.util.Set;
