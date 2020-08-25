@@ -1,4 +1,4 @@
-package com.ob.sort;
+package com.ob.algorithm.dynamic;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -39,7 +39,7 @@ public class MaxSubStringLength {
                 set.remove(str.charAt(i++));
             }
         }
-        System.out.println(tempi + "  " + tempj + "   " + str.substring(tempi, tempj + 1));
+        System.out.println(tempi + "  " + tempj + "  " + str.substring(tempi, tempj + 1));
         return max;
     }
 }
