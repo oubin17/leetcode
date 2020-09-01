@@ -8,7 +8,7 @@ package com.ob.algorithm.sort;
 public class InsertionSort {
 
     public static void main(String[] args) {
-        int[] sort = new int[]{3, 7, 9, 53, 2};
+        int[] sort = new int[]{3, 1, 7, 9, 53, 2};
         insertionSort(sort);
         for (int i = 0; i < sort.length; i++) {
             System.out.println(sort[i]);

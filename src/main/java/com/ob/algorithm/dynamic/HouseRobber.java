@@ -11,6 +11,7 @@ public class HouseRobber {
 
         int[] value = new int[]{1, 2, 3, 1};
         System.out.println(houseRobber(value, 0));
+        System.out.println(houseRobber2(value));
 
 
     }
@@ -33,6 +34,19 @@ public class HouseRobber {
             dp[i] = Math.max(dp[i + 1], value[i] + dp[i + 2]);
         }
         return dp[0];
+    }
+
+    public static int houseRobber2(int[] value) {
+
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i < value.length; i++) {
+            int temp = b;
+            b = Math.max(a + value[i], b);
+            a = temp;
+        }
+        return b;
+
     }
 
 }
