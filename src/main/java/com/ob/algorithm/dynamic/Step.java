@@ -8,8 +8,12 @@ package com.ob.algorithm.dynamic;
 public class Step {
 
     public static void main(String[] args) {
+        int n = 10;
 
-        System.out.println(step(4));
+        System.out.println(step(n));
+        System.out.println(waysToStep(n));
+        System.out.println(waysToStep2(n));
+        System.out.println(waysToStep3(n));
 
     }
 
@@ -34,7 +38,7 @@ public class Step {
     }
 
 
-    public int waysToStep(int n) {
+    public static int waysToStep(int n) {
         if(n <= 2) return n;
         if (n == 3) return 4;
         int[] d = new int[n + 1];
@@ -47,5 +51,30 @@ public class Step {
             d[i] %= 1000000007;
         }
         return d[n];
+    }
+
+    public static int waysToStep2(int n) {
+        int[] dp = new int[n + 1];
+        dp[1] = 1;
+        dp[2] = 2;
+        dp[3] = 4;
+        for (int i = 4; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
+        }
+        return dp[n];
+    }
+
+    public static int waysToStep3(int n) {
+        int first = 1;
+        int second = 2;
+        int third = 4;
+        int res = 0;
+        for (int i = 4; i <= n; i++) {
+            res = first + second + third;
+            first = second;
+            second = third;
+            third = res;
+        }
+        return res;
     }
 }
