@@ -1,4 +1,4 @@
-package com.ob.algorithm.exam;
+package com.ob.algorithm.coding;
 
 /**
  * @Author: oubin
