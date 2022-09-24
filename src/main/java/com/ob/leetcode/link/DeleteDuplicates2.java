@@ -34,8 +34,8 @@ public class DeleteDuplicates2 {
             return null;
         }
         ListNode pre = new ListNode(-1);
-
         pre.next = head;
+        ListNode newHead = pre;
         ListNode cur = pre.next;
         while (cur != null && cur.next != null) {
             if (cur.val == cur.next.val) {
@@ -43,13 +43,12 @@ public class DeleteDuplicates2 {
                     cur = cur.next;
                 }
                 pre.next = cur.next;
-                cur = cur.next;
             } else {
                 pre = cur;
-                cur = cur.next;
             }
+            cur = cur.next;
         }
-        return pre.next;
+        return newHead.next;
     }
 
     public static void main(String[] args) {
