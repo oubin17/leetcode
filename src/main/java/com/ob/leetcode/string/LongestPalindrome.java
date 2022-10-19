@@ -14,9 +14,55 @@ public class LongestPalindrome {
 
     public static void main(String[] args) {
         String x = "cbbd";
-        System.out.println(longestPalindrome(x));
+        System.out.println(longestPalindromeDP(x));
     }
 
+    /**
+     * 动态规划法
+     *
+     * @param s
+     * @return
+     */
+    public static String longestPalindromeDP(String s) {
+        int length = s.length();
+        if (length < 2) {
+            return s;
+        }
+
+        int maxLength = 1;
+        int begin = 0;
+        //使用dp[i][j] 表示s[i...j]左闭右闭区间是否是个回文字符串
+        //状态转移方程 dp[i][j] = (s[i] == s[j]) && dp[i + 1][j - 1]
+        //边界条件满足: j - 1 - (i + 1) + 1 < 2，保证小区间的长度大于2，因为如果等于1，那必然是个回文串
+        //更新状态转移方程：dp[i][j] = (s[i] == s[j]) && ((j - i < 3) || dp[i + 1][j - 1])
+        boolean[][] dp = new boolean[length][length];
+        for (int i = 0; i < length; i++) {
+            dp[i][i] = true;
+        }
+        char[] chars = s.toCharArray();
+        for(int j = 1; j < length; j++) {
+            for (int i = 0; i < j; i++) {
+                if (chars[i] == chars[j]) {
+                    if (j - i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+                if (dp[i][j] && j - i + 1 > maxLength) {
+                    maxLength = j - i + 1;
+                    begin = i;
+                }
+            }
+        }
+        return s.substring(begin, begin + maxLength);
+
+    }
+    /**
+     * 中心点扩散法
+     * @param s
+     * @return
+     */
     public static String longestPalindrome(String s) {
         String palindrome = String.valueOf(s.charAt(0));
         for (int i = 0; i < s.length() - 1; i++) {
