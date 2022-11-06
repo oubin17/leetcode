@@ -36,7 +36,7 @@ public class SortedArrayToBST {
         if (start > end) {
             return null;
         }
-        int mid = start + (end - start) / 2;
+        int mid = start + ((end - start) >> 1);
         TreeNode root = new TreeNode(nums[mid]);
         root.left = generateTree(nums, start, mid - 1);
         root.right = generateTree(nums, mid + 1, end);
