@@ -13,8 +13,6 @@ import java.util.HashMap;
  */
 public class NumTree {
 
-
-
     public static int numTrees(int n) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
         return count(n, hashMap);
