@@ -61,13 +61,13 @@ public class NQueens {
             }
         }
         //检查左上方
-        for (int i = row - 1, j = col - 1; i >=0 && j >= 0 ; i --, j--) {
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
             if (map[i][j] == 1) {
                 return false;
             }
         }
         //检查右上方
-        for (int i = row - 1, j = col + 1; i >=0 && j < map.length; i--, j++) {
+        for (int i = row - 1, j = col + 1; i >= 0 && j < map.length; i--, j++) {
             if (map[i][j] == 1) {
                 return false;
             }
