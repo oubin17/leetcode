@@ -30,17 +30,23 @@ public class Subsets {
      * 这里是i + 1还是level + 1
      *
      * @param nums
-     * @param level
+     * @param start
      */
-    private void backTrack(int[] nums, int level) {
+    private void backTrack(int[] nums, int start) {
 
         subList.add(new ArrayList<>(current));
 
-        for (int i = level; i < nums.length; i++) {
+        for (int i = start; i < nums.length; i++) {
             current.addLast(nums[i]);
             backTrack(nums, i + 1);
             current.removeLast();
 
         }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1, 2, 3};
+        Subsets subsets = new Subsets();
+        subsets.subsets(nums);
     }
 }
